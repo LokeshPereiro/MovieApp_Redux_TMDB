@@ -12,19 +12,24 @@ import { ErrorPage, Home, Details, Explore } from "./pages";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  // const dispatch = useDispatch();
-  // const { url } = useSelector((state) => state.home);
-  // // console.log(url?.total_results);
+  const dispatch = useDispatch();
+  const { url } = useSelector((state) => state.home);
+  // console.log(url);
 
-  // const apiTest = async () => {
-  //   const data = await fetchDataApi("/movie/popular");
-  //   // console.log(data);
-  //   dispatch(getApiConfig(data));
-  // };
+  const apiTest = async () => {
+    const data = await fetchDataApi("/configuration");
+    // console.log(data);
+    const imgUrl = {
+      backdrop: data.images.secure_base_url + "original",
+      poster: data.images.secure_base_url + "original",
+      profile: data.images.secure_base_url + "original",
+    };
+    dispatch(getApiConfig(imgUrl));
+  };
 
-  // useEffect(() => {
-  //   apiTest();
-  // }, []);
+  useEffect(() => {
+    apiTest();
+  }, []);
   return (
     <>
       <Header />
@@ -35,7 +40,7 @@ function App() {
         <Route path="/explore/:mediaType" element={<Explore />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
