@@ -71,9 +71,11 @@ export const Header = () => {
   return (
     <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
       <ContentWrap>
+        {/* Logo */}
         <div className="logo" onClick={() => navigate("/")}>
           <img src={logo} alt="" />
         </div>
+        {/* Nav Menus */}
         <ul className="menuItems">
           <li className="menuItem" onClick={() => navigationHandler("movie")}>
             Movies
@@ -86,6 +88,7 @@ export const Header = () => {
           </li>
         </ul>
 
+        {/* Search */}
         <div className="mobileMenuItems">
           <HiOutlineSearch onClick={openSearch} />
           {mobileMenu ? (
@@ -95,6 +98,7 @@ export const Header = () => {
           )}
         </div>
       </ContentWrap>
+
       {showSearch && (
         <div className="searchBar">
           <ContentWrap>
