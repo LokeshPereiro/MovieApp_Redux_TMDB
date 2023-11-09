@@ -1,23 +1,22 @@
 @import "../../mixins.scss";
 .carousel {
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
+
   .contentWrapper {
     position: relative;
   }
   .carouselTitle {
-    font-size: 24px;
-    color: white;
-    margin-bottom: 20px;
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
     font-weight: normal;
   }
   .arrow {
-    font-size: 30px;
-    color: black;
+    font-size: 3rem;
     position: absolute;
     top: 44%;
     transform: translateY(-50%);
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.6;
     z-index: 1;
     display: none;
     @include md {
@@ -28,75 +27,75 @@
     }
   }
   .carouselLeftNav {
-    left: 30px;
+    left: 3rem;
   }
   .carouselRighttNav {
-    right: 30px;
+    right: 3rem;
   }
   .loadingSkeleton {
     display: flex;
-    gap: 10px;
+    gap: 1rem;
     overflow-y: hidden;
-    margin-right: -20px;
-    margin-left: -20px;
-    padding: 0 20px;
+    margin-right: -2rem;
+    margin-left: -2rem;
+    padding: 0 2rem;
     @include md {
-      gap: 20px;
+      gap: 2rem;
       overflow: hidden;
       margin: 0;
       padding: 0;
     }
     .skeletonItem {
-      width: 125px;
+      width: 12.5rem;
       @include md {
-        width: calc(25% - 15px);
+        width: calc(25% - 1.5rem);
       }
       @include lg {
-        width: calc(20% - 16px);
+        width: calc(20% - 1.6rem);
       }
       flex-shrink: 0;
       .posterBlock {
-        border-radius: 12px;
+        border-radius: 1.2rem;
         width: 100%;
         aspect-ratio: 1 / 1.5;
-        margin-bottom: 30px;
+        margin-bottom: 3rem;
       }
       .textBlock {
         display: flex;
         flex-direction: column;
         .title {
           width: 100%;
-          height: 20px;
-          margin-bottom: 10px;
+          height: 2rem;
+          margin-bottom: 1rem;
         }
         .date {
           width: 75%;
-          height: 20px;
+          height: 2rem;
         }
       }
     }
   }
   .carouselItems {
     display: flex;
-    gap: 10px;
+    gap: 1rem;
     overflow-y: hidden;
-    margin-right: -20px;
-    margin-left: -20px;
-    padding: 0 20px;
+    margin-right: -2rem;
+    margin-left: -2rem;
+    padding: 0 2rem;
     @include md {
-      gap: 20px;
+      gap: 2rem;
       overflow: hidden;
       margin: 0;
       padding: 0;
     }
     .carouselItem {
-      width: 125px;
+      width: 12.5rem;
       cursor: pointer;
       @include md {
-        width: calc(25% - 15px);
+        width: calc(25% - 1.5rem);
       }
       @include lg {
-        width: calc(20% - 16px);
+        width: calc(20% - 1.6rem);
       }
       flex-shrink: 0;
       .posterBlock {
@@ -105,7 +104,7 @@
         aspect-ratio: 1 / 1.5;
         background-size: cover;
         background-position: center;
-        margin-bottom: 30px;
+        margin-bottom: 3rem;
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
@@ -116,7 +115,7 @@
           left: 0;
           width: 100%;
           height: 100%;
-          border-radius: 12px;
+          border-radius: 1.2rem;
           overflow: hidden;
           img {
             width: 100%;
@@ -126,15 +125,15 @@
           }
         }
         .circleRating {
-          width: 40px;
-          height: 40px;
+          width: 4rem;
+          height: 4rem;
           position: relative;
-          top: 30px;
+          top: 3rem;
           background-color: white;
           flex-shrink: 0;
           @include md {
-            width: 50px;
-            height: 50px;
+            width: 5rem;
+            height: 5rem;
           }
         }
         .genres {
@@ -152,16 +151,16 @@
         display: flex;
         flex-direction: column;
         .title {
-          font-size: 16px;
-          margin-bottom: 10px;
-          line-height: 24px;
+          font-size: 1.6rem;
+          margin-bottom: 1rem;
+          line-height: 2.4rem;
           @include ellipsis(1);
           @include md {
-            font-size: 20px;
+            font-size: 2rem;
           }
         }
         .date {
-          font-size: 14px;
+          font-size: 1.4rem;
           opacity: 0.5;
         }
       }

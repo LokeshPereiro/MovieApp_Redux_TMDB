@@ -1,43 +1,64 @@
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1;
-  font-weight: 500;
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700;800&family=Kalam:wght@300;400;700&display=swap");
 
+:root {
+  font-family: "Kalam", "Dosis", sans-serif, "Times New Roman", serif;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-weight: 500;
+  line-height: 1;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --black: #04152d;
-  --black2: #041226;
-  --black3: #020c1b;
-  --black-lighter: #1c4b91;
-  --black-light: #173d77;
-  --pink: #da2f68;
-  --orange: #f89e00;
-  --gradient: linear-gradient(98.37deg, #4e7d3c 0.99%, #346395 100%);
+  --white: #fff;
+  --darkWhite: rgb(194, 197, 201);
+  --dark: #0f0f0f;
+  --darkBlue: #04152d;
+  --lighterDarkBlue: #173d77;
+  --lightBlue: #346395;
+  --redPink: #da2f68;
+  --yellowOrange: #f89e00;
+  --greenLime: #6caa43;
+  --gradient: linear-gradient(
+    98.37deg,
+    var(--greenLime) 0.99%,
+    var(--lightBlue) 100%
+  );
 }
 
-* {
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: var(--black);
 }
 
 ::-webkit-scrollbar {
   display: none;
 }
 
+body {
+  background-color: var(--darkBlue);
+  font-size: 1.6rem;
+  color: var(--white);
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .skeleton {
   position: relative;
   overflow: hidden;
-  background-color: #0a2955;
+  background-color: var(--lighterDarkBlue);
   &::after {
     position: absolute;
     top: 0;
@@ -47,16 +68,16 @@ body {
     transform: translateX(-100%);
     background-image: linear-gradient(
       90deg,
-      rgba(#193763, 0) 0,
-      rgba(#193763, 0.2) 20%,
-      rgba(#193763, 0.5) 60%,
-      rgba(#193763, 0)
+      rgba(royalblue, 0) 0,
+      rgba(royalblue, 0.2) 40%,
+      rgba(royalblue, 0.5) 60%,
+      rgba(royalblue, 0)
     );
-    animation: shimmer 2s infinite;
+    animation: sinisterLight 2s infinite;
     content: "";
   }
 
-  @keyframes shimmer {
+  @keyframes sinisterLight {
     100% {
       transform: translateX(100%);
     }

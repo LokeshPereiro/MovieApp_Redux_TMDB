@@ -1,8 +1,9 @@
-# React + Vite
+# Main DevDependencies
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- [The Movie Data Base](https://www.themoviedb.org/)
+- [Sass](https://www.npmjs.com/package/node-sass)
 
-Currently, two official plugins are available:
+## DevDependencies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React Lazy Load Component](https://www.npmjs.com/package/react-lazy-load-image-component)
+- [React Icons](https://react-icons.github.io/react-icons/)

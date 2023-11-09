@@ -5,9 +5,9 @@ export const Home = () => {
   return (
     <div className="homePage">
       <Banner />
-      <Popular />
-      <TopRated />
       <Trending />
+      <TopRated />
+      <Popular />
     </div>
   );
 };

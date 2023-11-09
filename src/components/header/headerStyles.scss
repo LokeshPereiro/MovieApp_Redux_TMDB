@@ -4,7 +4,7 @@
   position: fixed;
   transform: translateY(0);
   width: 100%;
-  height: 60px;
+  height: 6rem;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -12,14 +12,14 @@
   z-index: 2;
   &.top {
     background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
+    backdrop-filter: blur(0.35rem);
+    -webkit-backdrop-filter: blur(0.35rem);
   }
   &.show {
-    background-color: var(--black3);
+    background-color: var(--dark);
   }
   &.hide {
-    transform: translateY(-60px);
+    transform: translateY(-6rem);
   }
 
   .contentWrapper {
@@ -30,72 +30,74 @@
   .logo {
     cursor: pointer;
     img {
-      height: 50px;
+      height: 5rem;
     }
   }
   .menuItems {
     list-style-type: none;
     display: none;
     align-items: center;
+    cursor: pointer;
     @include md {
       display: flex;
     }
     .menuItem {
-      height: 60px;
+      height: 6rem;
       display: flex;
       align-items: center;
-      margin: 0 15px;
-      color: white;
+      margin: 0 1.5rem;
+      color: var(--white);
       font-weight: 500;
       position: relative;
       &.searchIcon {
         margin-right: 0;
       }
       svg {
-        font-size: 18px;
+        font-size: 1.8rem;
       }
       cursor: pointer;
-      &:hover {
-        color: var(--pink);
-      }
     }
   }
 
   .mobileMenuItems {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 2rem;
+    cursor: pointer;
     @include md {
       display: none;
     }
     svg {
-      font-size: 18px;
+      font-size: 1.8rem;
       color: white;
     }
   }
 
   &.mobileView {
-    background: var(--black3);
+    background: var(--dark);
     .menuItems {
       display: flex;
       position: absolute;
-      top: 60px;
+      top: 6rem;
       left: 0;
-      background: var(--black3);
+      background: var(--dark);
       flex-direction: column;
       width: 100%;
-      padding: 20px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2rem 0;
+      border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
       animation: mobileMenu 0.3s ease forwards;
       .menuItem {
-        font-size: 20px;
+        font-size: 2rem;
         width: 100%;
         height: auto;
-        padding: 15px 20px;
+        padding: 1.5rem 2rem;
         margin: 0;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        &:hover {
+          color: var(--redPink);
+        }
         &:last-child {
           display: none;
         }
@@ -105,36 +107,38 @@
 
   .searchBar {
     width: 100%;
-    height: 60px;
-    background-color: white;
+    height: 6rem;
+    background-color: var(--white);
     position: absolute;
-    top: 60px;
+    top: 6rem;
     animation: mobileMenu 0.3s ease forwards;
     .searchInput {
       display: flex;
       align-items: center;
-      height: 40px;
-      margin-top: 10px;
+      height: 4rem;
+      margin-top: 1rem;
       width: 100%;
+
       svg {
-        font-size: 20px;
+        font-size: 2rem;
         flex-shrink: 0;
-        margin-left: 10px;
+        margin-left: 1rem;
         cursor: pointer;
+        color: var(--redPink);
       }
       input {
         width: 100%;
-        height: 50px;
-        background-color: white;
+        height: 5rem;
+        background-color: var(--white);
         outline: 0;
         border: 0;
-        border-radius: 30px 0 0 30px;
-        padding: 0 15px;
-        font-size: 14px;
+        border-radius: 3rem 0 0 3rem;
+        padding: 0 1.5rem;
+        font-size: 1.4rem;
         @include md {
-          height: 60px;
-          font-size: 20px;
-          padding: 0 30px;
+          height: 6rem;
+          font-size: 2rem;
+          padding: 0 3rem;
         }
       }
     }

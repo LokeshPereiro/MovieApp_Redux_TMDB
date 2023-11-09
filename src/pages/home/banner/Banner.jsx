@@ -9,26 +9,30 @@ import { useFetchData } from "../../../hooks";
 export const Banner = () => {
   const [background, setBackground] = useState("");
   const [query, setQuery] = useState("");
+
   const navigate = useNavigate();
 
   const { url } = useSelector((state) => state.home);
   const { data, loading } = useFetchData("/movie/upcoming");
-
   // console.log(data);
 
+  const onInputChange = (evt) => {
+    setQuery(evt.target.value);
+  };
+
+  const handleSearchQuery = (evt) => {
+    evt.preventDefault();
+    navigate(`/search/${query}`);
+    setQuery("");
+  };
+
   useEffect(() => {
-    //Pick one object from results
-    const bg =
+    //Pick one random img from 20 possible results
+    const bannerBg =
       `${url.backdrop}` +
       data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
-    setBackground(bg);
+    setBackground(bannerBg);
   }, [data]);
-
-  const searchQueryHandler = (event) => {
-    if (event.key === "Enter" && query.length > 0) {
-      navigate(`/search/${query}`);
-    }
-  };
 
   return (
     <div className="heroBanner">
@@ -38,24 +42,24 @@ export const Banner = () => {
         </div>
       )}
 
-      <div className="opacity-layer"></div>
+      <div className="layer"></div>
 
       <ContentWrap>
-        <div className="heroBannerContent">
-          <span className="title">Welcome.</span>
+        <div className="heroBannerContent unselectable">
+          <span className="title">Welcome, {"Lokesh"}</span>
           <span className="subTitle">
-            Enjoy Thousands of movies, TV shows and fav cast in one unique
-            digital platform. Stay tunned for updated!
+            Now you can enjoy thousands of Movies, TV shows and your fav. Cast
+            for free in this unique digital platform.
           </span>
-          <div className="searchInput">
+          <form className="searchInput" onSubmit={handleSearchQuery}>
             <input
               type="text"
-              placeholder="Search for a movie or tv show...."
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyUp={searchQueryHandler}
+              placeholder="Search your fav movie or tv show..."
+              onChange={onInputChange}
+              value={query}
             />
-            <button>Search</button>
-          </div>
+            <button type="submit">Search</button>
+          </form>
         </div>
       </ContentWrap>
     </div>

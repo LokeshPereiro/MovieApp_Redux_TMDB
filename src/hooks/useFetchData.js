@@ -17,7 +17,7 @@ export const useFetchData = (url) => {
       setData(resp);
     } catch (error) {
       setLoading(false);
-      setError("Something went wrong!");
+      setError("Ups! Something went wrong!");
     }
   };
 

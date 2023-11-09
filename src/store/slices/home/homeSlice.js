@@ -8,7 +8,8 @@ export const homeSlice = createSlice({
     genres: {},
   },
   reducers: {
-    getApiConfig: (state, { payload }) => {
+    //To get images URL_Obj from api
+    setImgsApiConfig: (state, { payload }) => {
       state.url = payload;
     },
     getGenres: (state, { payload }) => {
@@ -16,4 +17,4 @@ export const homeSlice = createSlice({
     },
   },
 });
-export const { getApiConfig, getGenres } = homeSlice.actions;
+export const { setImgsApiConfig, getGenres } = homeSlice.actions;

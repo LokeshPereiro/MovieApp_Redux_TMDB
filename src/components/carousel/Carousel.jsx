@@ -1,16 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
-import "./carouselStyles.scss";
+import { useSelector } from "react-redux";
+import { ContentWrap, LazyLoadImg, Rating } from "../";
 
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import dayjs from "dayjs";
-
-import { ContentWrap, LazyLoadImg, Rating } from "../";
+import "./carouselStyles.scss";
 import PosterFallback from "../../assets/no-poster.png";
 
 // import CircleRating from "../circleRating/CircleRating";
@@ -18,6 +17,8 @@ import PosterFallback from "../../assets/no-poster.png";
 
 export const Carousel = ({ data, loading, endpoint, title }) => {
   const carouselContainer = useRef();
+  console.log(title);
+
   const { url } = useSelector((state) => state.home);
   const navigate = useNavigate();
 

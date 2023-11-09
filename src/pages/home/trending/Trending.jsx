@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { SwitchTabs, ContentWrap, Carousel } from "../../../components";
-import "./stylesTrending.scss";
 import { useFetchData } from "../../../hooks";
+
+import { SwitchTabs, ContentWrap, Carousel } from "../../../components";
 
 export const Trending = () => {
   const [endpoint, setEndpoint] = useState("day");

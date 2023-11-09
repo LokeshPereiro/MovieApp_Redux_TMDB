@@ -1,5 +1,6 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import PropTypes from "prop-types";
 
 export const LazyLoadImg = ({ className, src }) => {
   return (
@@ -10,4 +11,8 @@ export const LazyLoadImg = ({ className, src }) => {
       src={src}
     />
   );
+};
+LazyLoadImg.propTypes = {
+  className: PropTypes.string,
+  src: PropTypes.string.isRequired,
 };
