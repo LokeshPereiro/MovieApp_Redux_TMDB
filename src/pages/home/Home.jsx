@@ -6,8 +6,8 @@ export const Home = () => {
     <div className="homePage">
       <Banner />
       <Trending />
-      <TopRated />
       <Popular />
+      <TopRated />
     </div>
   );
 };

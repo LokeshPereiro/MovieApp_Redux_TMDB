@@ -6,3 +6,4 @@ export * from "./lazyLoadImg/LazyLoadImg";
 export * from "./switchTabs/SwitchTabs";
 export * from "./carousel/Carousel";
 export * from "./rating/Rating";
+export * from "./genres/Genres";

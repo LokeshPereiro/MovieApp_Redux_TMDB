@@ -1,32 +1,29 @@
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { useSelector } from "react-redux";
-import { ContentWrap, LazyLoadImg, Rating } from "../";
+import PropTypes from "prop-types";
+
+import { ContentWrap, LazyLoadImg, Rating, Genres } from "../";
+import { SkeletonItems, FormatDates } from "../../utils";
 
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-import dayjs from "dayjs";
 import "./carouselStyles.scss";
 import PosterFallback from "../../assets/no-poster.png";
 
-// import CircleRating from "../circleRating/CircleRating";
-// import Genres from "../genres/Genres";
-
-export const Carousel = ({ data, loading, endpoint, title }) => {
-  const carouselContainer = useRef();
-  console.log(title);
-
+export const Carousel = ({ data, loading, endpoint }) => {
   const { url } = useSelector((state) => state.home);
   const navigate = useNavigate();
 
-  const navigation = (dir) => {
-    const container = carouselContainer.current;
+  const carouselDiv = useRef();
 
+  const carouselMovement = (direction) => {
+    const container = carouselDiv.current;
     const scrollAmount =
-      dir === "left"
+      direction === "left"
         ? container.scrollLeft - (container.offsetWidth + 20)
         : container.scrollLeft + (container.offsetWidth + 20);
 
@@ -36,32 +33,21 @@ export const Carousel = ({ data, loading, endpoint, title }) => {
     });
   };
 
-  const skItem = () => {
-    return (
-      <div className="skeletonItem">
-        <div className="posterBlock skeleton"></div>
-        <div className="textBlock">
-          <div className="title skeleton"></div>
-          <div className="date skeleton"></div>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <div className="carousel">
       <ContentWrap>
-        {title && <div className="carouselTitle">{title}</div>}
         <BsFillArrowLeftCircleFill
           className="carouselLeftNav arrow"
-          onClick={() => navigation("left")}
+          onClick={() => carouselMovement("left")}
         />
         <BsFillArrowRightCircleFill
           className="carouselRighttNav arrow"
-          onClick={() => navigation("right")}
+          onClick={() => carouselMovement("right")}
         />
+
+        {/* Show  loadingSkeleton */}
         {!loading ? (
-          <div className="carouselItems" ref={carouselContainer}>
+          <div className="carouselItems" ref={carouselDiv}>
             {data?.map((item) => {
               const posterUrl = item.poster_path
                 ? url.poster + item.poster_path
@@ -77,14 +63,12 @@ export const Carousel = ({ data, loading, endpoint, title }) => {
                   <div className="posterBlock">
                     <LazyLoadImg src={posterUrl} />
                     <Rating rating={item.vote_average.toFixed(1)} />
-                    {/* <Genres data={item.genre_ids.slice(0, 2)} /> */}
+                    <Genres data={item.genre_ids.slice(0, 2)} />
                   </div>
                   <div className="textBlock">
                     <span className="title">{item.title || item.name}</span>
                     <span className="date">
-                      {dayjs(item.release_date || item.first_air_date).format(
-                        "MMM D, YYYY"
-                      )}
+                      {FormatDates(item.release_date || item.first_air_date)}
                     </span>
                   </div>
                 </div>
@@ -93,14 +77,20 @@ export const Carousel = ({ data, loading, endpoint, title }) => {
           </div>
         ) : (
           <div className="loadingSkeleton">
-            {skItem()}
-            {skItem()}
-            {skItem()}
-            {skItem()}
-            {skItem()}
+            <SkeletonItems />
+            <SkeletonItems />
+            <SkeletonItems />
+            <SkeletonItems />
+            <SkeletonItems />
           </div>
         )}
       </ContentWrap>
     </div>
   );
+};
+
+Carousel.propTypes = {
+  data: PropTypes.array,
+  loading: PropTypes.bool,
+  endpoint: PropTypes.string,
 };

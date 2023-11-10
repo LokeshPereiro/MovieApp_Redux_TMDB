@@ -12,9 +12,9 @@ export const homeSlice = createSlice({
     setImgsApiConfig: (state, { payload }) => {
       state.url = payload;
     },
-    getGenres: (state, { payload }) => {
+    setAllGenres: (state, { payload }) => {
       state.genres = payload;
     },
   },
 });
-export const { setImgsApiConfig, getGenres } = homeSlice.actions;
+export const { setImgsApiConfig, setAllGenres } = homeSlice.actions;

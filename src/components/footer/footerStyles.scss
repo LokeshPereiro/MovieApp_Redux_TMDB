@@ -27,7 +27,7 @@
         font-size: 1.6rem;
       }
       &:hover {
-        color: var(--lightBlue);
+        color: var(--white);
       }
     }
   }
@@ -58,8 +58,8 @@
       cursor: pointer;
       transition: all ease 0.3s;
       &:hover {
-        box-shadow: 0 0 0.625em var(--lightBlue);
-        color: var(--lightBlue);
+        box-shadow: 0 0 0.625em var(--redPink);
+        color: var(--redPink);
       }
     }
   }

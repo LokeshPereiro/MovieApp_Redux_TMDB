@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { useSelector, useDispatch } from "react-redux";
-import { setImgsApiConfig } from "./store/slices/home";
+import { useDispatch } from "react-redux";
+import { setImgsApiConfig, setAllGenres } from "./store/slices/home";
 
 import { Footer, Header, SearchResults } from "./components";
 import { ErrorPage, Home, Details, Explore } from "./pages";
@@ -13,12 +13,9 @@ import { fetchDataApi } from "./api";
 
 function App() {
   const dispatch = useDispatch();
-  //const { url } = useSelector((state) => state.home);
-  // console.log(url);
 
   const configImagesApi = async () => {
     const data = await fetchDataApi("/configuration");
-    // console.log(data);
     const imgUrls = {
       backdrop: data.images.secure_base_url + "original",
       poster: data.images.secure_base_url + "original",
@@ -27,8 +24,30 @@ function App() {
     dispatch(setImgsApiConfig(imgUrls));
   };
 
+  const getGenresApiIds = async () => {
+    //Both TV and Movie list in 1 single array
+    let promises = [];
+    let endPoints = ["tv", "movie"];
+    let allGenres = {};
+
+    endPoints.forEach((url) => {
+      promises.push(fetchDataApi(`/genre/${url}/list`));
+    });
+
+    const data = await Promise.all(promises);
+    // console.log(data);
+
+    //Saving Ids into our redux
+    data.map(({ genres }) => {
+      return genres.map((item) => (allGenres[item.id] = item));
+    });
+
+    dispatch(setAllGenres(allGenres));
+  };
+
   useEffect(() => {
     configImagesApi();
+    getGenresApiIds();
   }, []);
 
   return (
