@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
 import { ContentWrap, LazyLoadImg, Rating, Genres } from "../";
-import { SkeletonItems, FormatDates } from "../../utils";
+import { SkeletonItemsCarousel, FormatDates } from "../../utils";
 
 import {
   BsFillArrowLeftCircleFill,
@@ -77,11 +77,11 @@ export const Carousel = ({ data, loading, endpoint }) => {
           </div>
         ) : (
           <div className="loadingSkeleton">
-            <SkeletonItems />
-            <SkeletonItems />
-            <SkeletonItems />
-            <SkeletonItems />
-            <SkeletonItems />
+            <SkeletonItemsCarousel />
+            <SkeletonItemsCarousel />
+            <SkeletonItemsCarousel />
+            <SkeletonItemsCarousel />
+            <SkeletonItemsCarousel />
           </div>
         )}
       </ContentWrap>

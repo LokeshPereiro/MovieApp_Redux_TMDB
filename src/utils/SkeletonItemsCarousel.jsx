@@ -1,4 +1,4 @@
-export const SkeletonItems = () => {
+export const SkeletonItemsCarousel = () => {
   return (
     <div className="skeletonItem">
       <div className="posterBlock skeleton"></div>

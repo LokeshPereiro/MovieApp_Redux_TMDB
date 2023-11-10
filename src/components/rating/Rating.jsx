@@ -4,6 +4,7 @@ import "./ratingStyles.scss";
 import PropTypes from "prop-types";
 
 export const Rating = ({ rating }) => {
+  // console.log(typeof rating);
   return (
     <div className="circleRating">
       <CircularProgressbar

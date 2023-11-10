@@ -11,7 +11,7 @@ import { fetchDataApi } from "./api";
 
 //* configImagesApi() -> setting images into redux state so that we can render elements from our store & avoid multiple api callings
 
-function App() {
+export const App = () => {
   const dispatch = useDispatch();
 
   const configImagesApi = async () => {
@@ -63,6 +63,4 @@ function App() {
       <Footer />
     </>
   );
-}
-
-export default App;
+};
