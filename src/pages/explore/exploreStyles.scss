@@ -1,0 +1,106 @@
+@import "../../mixins.scss";
+.explorePage {
+  min-height: 70rem;
+  padding-top: 10rem;
+  .resultNotFound {
+    font-size: 2.4rem;
+    color: var(--darkWhite);
+  }
+  .pageHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    @include md {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  .pageTitle {
+    font-size: 2.4rem;
+    line-height: 3.4rem;
+    margin-bottom: 1.2rem;
+    @include md {
+      margin-bottom: 0;
+    }
+  }
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @include md {
+      flex-direction: row;
+    }
+    .react-select-container {
+      &.genresDD {
+        width: 100%;
+        @include md {
+          max-width: 50rem;
+          min-width: 25rem;
+        }
+      }
+      &.sortbyDD {
+        width: 100%;
+        flex-shrink: 0;
+        @include md {
+          width: 25rem;
+        }
+      }
+      .react-select__control {
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+        background: var(--gradient);
+        border-radius: 2rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+        .react-select__clear-indicator {
+          &:hover {
+            color: var(--redPink);
+          }
+        }
+
+        .react-select__value-container {
+          .react-select__placeholder,
+          .react-select__input-container {
+            color: var(--white);
+            margin: 0 1rem;
+          }
+        }
+        .react-select__single-value {
+          color: var(--white);
+        }
+        .react-select__multi-value {
+          background-color: var(--dark);
+          border-radius: 1rem;
+
+          .react-select__multi-value__label {
+            color: var(--white);
+          }
+          .react-select__multi-value__remove {
+            background-color: transparent;
+            // cursor: pointer;
+          }
+        }
+      }
+      .react-select__menu {
+        background-color: var(--darkBlue);
+        top: 40px;
+        margin: 0;
+        padding: 0;
+        color: var(--redPink);
+        text-align: center;
+      }
+    }
+  }
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    @include md {
+      gap: 20px;
+    }
+  }
+}

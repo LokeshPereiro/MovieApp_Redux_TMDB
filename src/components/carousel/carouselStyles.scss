@@ -1,7 +1,6 @@
 @import "../../mixins.scss";
 .carousel {
   margin-bottom: 5rem;
-
   .contentWrapper {
     position: relative;
   }
@@ -10,6 +9,7 @@
     margin-bottom: 2rem;
     font-weight: normal;
   }
+
   .arrow {
     font-size: 3rem;
     position: absolute;
@@ -19,11 +19,9 @@
     opacity: 0.6;
     z-index: 1;
     display: none;
-    @include md {
-      display: block;
-    }
+
     &:hover {
-      opacity: 0.8;
+      opacity: 0.9;
     }
   }
   .carouselLeftNav {
@@ -39,6 +37,7 @@
     margin-right: -2rem;
     margin-left: -2rem;
     padding: 0 2rem;
+
     @include md {
       gap: 2rem;
       overflow: hidden;
@@ -82,6 +81,7 @@
     margin-right: -2rem;
     margin-left: -2rem;
     padding: 0 2rem;
+
     @include md {
       gap: 2rem;
       overflow: hidden;
@@ -164,6 +164,11 @@
           opacity: 0.5;
         }
       }
+    }
+  }
+  &:hover {
+    .arrow {
+      display: block;
     }
   }
 }

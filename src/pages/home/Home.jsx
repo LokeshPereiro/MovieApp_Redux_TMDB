@@ -1,13 +1,17 @@
+import { LandingPageConfig } from "./";
 import { Banner, Popular, TopRated, Trending } from "./";
 import "./homeStyles.scss";
 
 export const Home = () => {
   return (
-    <div className="homePage">
-      <Banner />
-      <Trending />
-      <Popular />
-      <TopRated />
-    </div>
+    <>
+      <LandingPageConfig />
+      <div className="homePage">
+        <Banner />
+        <Trending />
+        <Popular />
+        <TopRated />
+      </div>
+    </>
   );
 };

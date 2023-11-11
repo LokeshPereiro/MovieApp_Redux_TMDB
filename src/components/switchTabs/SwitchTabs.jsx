@@ -3,8 +3,10 @@ import "./switchTabsStyles.scss";
 
 import PropTypes from "prop-types";
 
-export const SwitchTabs = ({ data, onTabChange }) => {
+export const SwitchTabs = ({ dataTab, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
+  // console.log(selectedTab);
+
   const [left, setLeft] = useState(0);
 
   const handleActiveTab = (tab, index) => {
@@ -20,7 +22,7 @@ export const SwitchTabs = ({ data, onTabChange }) => {
   return (
     <div className="switchingTabs">
       <div className="tabItems">
-        {data.map((tab, index) => (
+        {dataTab?.map((tab, index) => (
           <span
             key={index}
             className="tabItem"
@@ -36,6 +38,6 @@ export const SwitchTabs = ({ data, onTabChange }) => {
 };
 
 SwitchTabs.propTypes = {
-  data: PropTypes.array.isRequired,
+  dataTab: PropTypes.array,
   onTabChange: PropTypes.func.isRequired,
 };

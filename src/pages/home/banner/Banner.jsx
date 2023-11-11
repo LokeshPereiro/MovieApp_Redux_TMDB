@@ -2,35 +2,27 @@ import { useEffect, useState } from "react";
 import "./bannerStyles.scss";
 import { LazyLoadImg, ContentWrap } from "../../../components";
 
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useFetchData } from "../../../hooks";
+import { useSearchData } from "../../../hooks/useFormData";
+
+//* Adding store { images urls } with api backdrop_path, so that, we can render random background img
 
 export const Banner = () => {
-  const [background, setBackground] = useState("");
-  const [query, setQuery] = useState("");
-
-  const navigate = useNavigate();
+  const [background, setBackground] = useState(null);
 
   const { url } = useSelector((state) => state.home);
+
   const { data, loading } = useFetchData("/movie/upcoming");
-  // console.log(data);
 
-  const onInputChange = (evt) => {
-    setQuery(evt.target.value);
-  };
-
-  const handleSearchQuery = (evt) => {
-    evt.preventDefault();
-    navigate(`/search/${query}`);
-    setQuery("");
-  };
+  const { query, onInputChange, handleSearchQuery } = useSearchData();
 
   useEffect(() => {
     //Pick one random img from 20 possible results
     const bannerBg =
       `${url.backdrop}` +
       data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
+
     setBackground(bannerBg);
   }, [data]);
 
@@ -48,8 +40,8 @@ export const Banner = () => {
         <div className="heroBannerContent unselectable">
           <span className="title">Welcome, {"Lokesh"}</span>
           <span className="subTitle">
-            Now you can enjoy thousands of Movies, TV shows and your fav. Cast
-            for free in this unique digital platform.
+            Now you can enjoy thousands of Movies, TV shows and your favourite
+            Cast for free in this unique digital platform.
           </span>
           <form className="searchInput" onSubmit={handleSearchQuery}>
             <input

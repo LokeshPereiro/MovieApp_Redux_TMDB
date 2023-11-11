@@ -14,5 +14,5 @@ export const LazyLoadImg = ({ className, src }) => {
 };
 LazyLoadImg.propTypes = {
   className: PropTypes.string,
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
 };

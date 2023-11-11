@@ -6,6 +6,8 @@ export const useFetchData = (url) => {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
+  if (data === undefined) return;
+
   const apiData = async () => {
     try {
       setLoading("loading...");

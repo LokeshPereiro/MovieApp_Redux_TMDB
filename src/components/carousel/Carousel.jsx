@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -12,9 +12,9 @@ import {
 } from "react-icons/bs";
 
 import "./carouselStyles.scss";
-import PosterFallback from "../../assets/no-poster.png";
+import { POSTER_FALLBACK } from "../../constants";
 
-export const Carousel = ({ data, loading, endpoint }) => {
+export const Carousel = ({ data, loading, endpoint, title }) => {
   const { url } = useSelector((state) => state.home);
   const navigate = useNavigate();
 
@@ -22,6 +22,7 @@ export const Carousel = ({ data, loading, endpoint }) => {
 
   const carouselMovement = (direction) => {
     const container = carouselDiv.current;
+
     const scrollAmount =
       direction === "left"
         ? container.scrollLeft - (container.offsetWidth + 20)
@@ -36,6 +37,8 @@ export const Carousel = ({ data, loading, endpoint }) => {
   return (
     <div className="carousel">
       <ContentWrap>
+        {title && <div className="carouselTitle">{title}</div>}
+
         <BsFillArrowLeftCircleFill
           className="carouselLeftNav arrow"
           onClick={() => carouselMovement("left")}
@@ -51,7 +54,7 @@ export const Carousel = ({ data, loading, endpoint }) => {
             {data?.map((item) => {
               const posterUrl = item.poster_path
                 ? url.poster + item.poster_path
-                : PosterFallback;
+                : POSTER_FALLBACK;
               return (
                 <div
                   key={item.id}
@@ -61,7 +64,7 @@ export const Carousel = ({ data, loading, endpoint }) => {
                   }
                 >
                   <div className="posterBlock">
-                    <LazyLoadImg src={posterUrl} />
+                    <LazyLoadImg src={posterUrl} alt={"trending movies imgs"} />
                     <Rating rating={item.vote_average.toFixed(1)} />
                     <Genres data={item.genre_ids.slice(0, 2)} />
                   </div>
@@ -90,7 +93,8 @@ export const Carousel = ({ data, loading, endpoint }) => {
 };
 
 Carousel.propTypes = {
+  title: PropTypes.string,
   data: PropTypes.array,
-  loading: PropTypes.bool,
+  loading: PropTypes.string,
   endpoint: PropTypes.string,
 };

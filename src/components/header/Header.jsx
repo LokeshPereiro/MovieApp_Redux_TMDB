@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import "./headerStyles.scss";
-import logo from "../../assets/themovies_logo.png";
+
 import { ContentWrap } from "../hoc/ContentWrap";
+import { LOGO } from "../../constants";
+import "./headerStyles.scss";
+
+import { useSearchData } from "../../hooks";
 
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
@@ -10,31 +13,21 @@ import { VscChromeClose } from "react-icons/vsc";
 
 export const Header = () => {
   const [show, setShow] = useState("top");
+
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [query, setQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
-  const navigate = useNavigate();
+
   const location = useLocation();
+  const navigate = useNavigate();
 
-  // Searching
-  const onInputChange = (evt) => {
-    setQuery(evt.target.value);
-  };
-
-  const handleSearchQuery = (evt) => {
-    evt.preventDefault();
-    navigate(`/search/${query}`);
-    setTimeout(() => {
-      setShowSearch(false);
-    }, 500);
-    setQuery("");
-  };
+  const { query, onInputChange, handleSearchQuery } = useSearchData();
 
   const onShowHideSearchBar = () => {
     setShowSearch(!showSearch);
     setMobileMenu(false);
   };
+
   const onShowHideMobileMenu = () => {
     setMobileMenu(!mobileMenu);
     setShowSearch(false);
@@ -79,7 +72,7 @@ export const Header = () => {
       <ContentWrap>
         {/* Logo */}
         <Link to="/" className="logo">
-          <img src={logo} alt="" />
+          <img src={LOGO} alt="" />
         </Link>
 
         {/* Menu items */}
@@ -112,7 +105,7 @@ export const Header = () => {
             <form onSubmit={handleSearchQuery} className="searchInput">
               <input
                 type="text"
-                placeholder="Search your fav movie or tv show..."
+                placeholder="Search your fav movies or tv shows..."
                 onChange={onInputChange}
                 value={query}
               />

@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useFetchData } from "../../../hooks";
-import "./popularStyles.scss";
 
+import { useFetchData } from "../../../hooks";
 import { SwitchTabs, ContentWrap, Carousel } from "../../../components";
+
+import { POPULAR_TOPRATED_DATA } from "../../../constants";
 
 export const Popular = () => {
   const [endpoint, setEndpoint] = useState("movie");
@@ -17,7 +18,7 @@ export const Popular = () => {
     <div className="carouselSection">
       <ContentWrap>
         <span className="carouselTitle">Popular</span>
-        <SwitchTabs data={["Movies", "TV Shows"]} onTabChange={onTabChange} />
+        <SwitchTabs data={POPULAR_TOPRATED_DATA} onTabChange={onTabChange} />
       </ContentWrap>
       <Carousel data={data?.results} loading={loading} endpoint={endpoint} />
     </div>

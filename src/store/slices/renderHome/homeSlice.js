@@ -6,6 +6,7 @@ export const homeSlice = createSlice({
   initialState: {
     url: {},
     genres: {},
+    endpoint: "",
   },
   reducers: {
     //To get images URL_Obj from api
