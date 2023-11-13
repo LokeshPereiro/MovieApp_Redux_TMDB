@@ -25,7 +25,7 @@ export const LandingPageConfig = () => {
   const getGenresApiIds = async () => {
     //Both TV and Movie list in 1 single array
     let promises = [];
-    let endPoints = ["tv", "movie"];
+    let endPoints = ["movie", "tv"];
     let allGenres = {};
 
     endPoints.forEach((url) => {

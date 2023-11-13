@@ -1,4 +1,5 @@
 import ReactPlayer from "react-player/youtube";
+import PropTypes from "prop-types";
 
 import "./videoStyles.scss";
 
@@ -7,6 +8,7 @@ export const Video = ({ show, setShow, videoId, setVideoId }) => {
     setShow(false);
     setVideoId(null);
   };
+
   return (
     <div className={`videoPopup ${show ? "visible" : ""}`}>
       <div className="opacityLayer" onClick={hidePopup}></div>
@@ -24,4 +26,11 @@ export const Video = ({ show, setShow, videoId, setVideoId }) => {
       </div>
     </div>
   );
+};
+
+Video.propTypes = {
+  show: PropTypes.bool,
+  setShow: PropTypes.func,
+  videoId: PropTypes.string,
+  setVideoId: PropTypes.func,
 };

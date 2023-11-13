@@ -1,12 +1,7 @@
 import { ContentWrap } from "../hoc/ContentWrap";
 import "./footerStyles.scss";
 
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export const Footer = () => {
   return (
@@ -20,25 +15,32 @@ export const Footer = () => {
           <li className="menuItem">FAQ</li>
         </ul>
         <div className="infoText">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. pariatur.
+          My name is Lokesh Pereiro Martínez-Falero and I am a junior fullstack
+          developer, currently based in Ferrol, Spain. My goal is to build a
+          career around the infinite possibilities that web technologies offer
+          us to improve people's lives. I love learning and I'm a self-taught
+          programmer with a huge growth mindset. Let's write the next lines of
+          codes togather!🤝
         </div>
         <div className="socialIcons">
-          <span className="icon">
-            <FaFacebookF />
-          </span>
-          <span className="icon">
-            <FaInstagram />
-          </span>
-          <span className="icon">
-            <FaTwitter />
-          </span>
-          <span className="icon">
+          <a
+            href="https://github.com/LokeshPereiro"
+            target="blank"
+            className="icon github"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/lokesh-pereiro-mart%C3%ADnez-falero-334818135/"
+            target="blank"
+            className="icon linkedin"
+          >
             <FaLinkedin />
-          </span>
+          </a>
         </div>
+        <span className="copyright">
+          &reg; All rights reserved 2023 - Made with 💖
+        </span>
       </ContentWrap>
     </footer>
   );

@@ -1,5 +1,6 @@
 import { Carousel } from "../../../components";
 import { useFetchData } from "../../../hooks";
+import PropTypes from "prop-types";
 
 export const Similar = ({ mediaType, id }) => {
   const { data, loading } = useFetchData(`/${mediaType}/${id}/similar`);
@@ -15,4 +16,8 @@ export const Similar = ({ mediaType, id }) => {
       endpoint={mediaType}
     />
   );
+};
+Similar.propTypes = {
+  mediaType: PropTypes.string,
+  id: PropTypes.string,
 };

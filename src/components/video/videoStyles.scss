@@ -24,16 +24,18 @@
   }
   .videoPlayer {
     position: relative;
-    width: 800px;
+    width: 80rem;
     aspect-ratio: 16 / 9;
-    background-color: white;
+    background-color: var(--lightBlue);
     transform: scale(0.2);
     transition: transform 250ms;
     .closeBtn {
       position: absolute;
-      top: -20px;
+      top: -2rem;
       right: 0;
-      color: white;
+      font-weight: bold;
+      color: var(--redPink);
+
       cursor: pointer;
     }
   }

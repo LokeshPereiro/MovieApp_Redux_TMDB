@@ -2,19 +2,7 @@
 .searchResultsPage {
   min-height: 70rem;
   padding-top: 10rem;
-  .resultNotFound {
-    font-size: 2.4rem;
-    text-align: center;
-    color: var(--darkWhite);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    img {
-      height: auto;
-      max-width: 100%;
-    }
-  }
+
   .pageTitle {
     font-size: 2.4rem;
     line-height: 3.4rem;

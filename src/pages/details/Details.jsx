@@ -10,23 +10,15 @@ export const Details = () => {
   const { data: creditsData, loading: creditsLoading } = useFetchData(
     `/${mediaType}/${id}/credits`
   );
-
-  // if (
-  //   data === null ||
-  //   data === undefined ||
-  //   mediaType === null ||
-  //   mediaType === undefined
-  // )
-  //   return;
-
-  // console.log(creditsData);
   return (
-    <div>
-      <DetailsInfo video={data?.results?.[0]} crew={creditsData?.crew} />
-      <Cast data={creditsData?.cast} loading={creditsLoading} />
-      <RelatedVideos data={data} loading={loading} />
-      <Similar mediaType={mediaType} id={id} />
-      <Recommendation mediaType={mediaType} id={id} />
-    </div>
+    <>
+      <div>
+        <DetailsInfo video={data?.results?.[0]} crew={creditsData?.crew} />
+        <Cast data={creditsData?.cast} loading={creditsLoading} />
+        <RelatedVideos data={data} loading={loading} />
+        <Similar mediaType={mediaType} id={id} />
+        <Recommendation mediaType={mediaType} id={id} />
+      </div>
+    </>
   );
 };

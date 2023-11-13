@@ -1,4 +1,5 @@
 import "./spinnerStyles.scss";
+import PropTypes from "prop-types";
 
 export const Spinner = ({ initial }) => {
   return (
@@ -15,4 +16,8 @@ export const Spinner = ({ initial }) => {
       </svg>
     </div>
   );
+};
+
+Spinner.propTypes = {
+  initial: PropTypes.bool,
 };

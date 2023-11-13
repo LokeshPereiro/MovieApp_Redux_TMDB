@@ -1,5 +1,6 @@
 import { Carousel } from "../../../components";
 import { useFetchData } from "../../../hooks";
+import PropTypes from "prop-types";
 
 export const Recommendation = ({ mediaType, id }) => {
   const { data, loading } = useFetchData(`/${mediaType}/${id}/recommendations`);
@@ -12,4 +13,9 @@ export const Recommendation = ({ mediaType, id }) => {
       endpoint={mediaType}
     />
   );
+};
+
+Recommendation.propTypes = {
+  mediaType: PropTypes.string,
+  id: PropTypes.string,
 };

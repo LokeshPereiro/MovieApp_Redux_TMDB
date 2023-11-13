@@ -38,7 +38,7 @@ export const Banner = () => {
 
       <ContentWrap>
         <div className="heroBannerContent unselectable">
-          <span className="title">Welcome, {"Lokesh"}</span>
+          <span className="title">Welcome, {"Peter"}</span>
           <span className="subTitle">
             Now you can enjoy thousands of Movies, TV shows and your favourite
             Cast for free in this unique digital platform.

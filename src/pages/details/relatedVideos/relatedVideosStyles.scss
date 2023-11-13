@@ -1,74 +1,54 @@
 @import "../../../mixins.scss";
 .videosSection {
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
   .sectionHeading {
-    font-size: 24px;
+    font-size: 2.4rem;
     color: white;
-    margin-bottom: 25px;
+    margin-bottom: 2.5rem;
   }
   .videos {
     display: flex;
-    gap: 10px;
+    gap: 1rem;
     overflow-x: auto;
-    margin-right: -20px;
-    margin-left: -20px;
-    padding: 0 20px;
+    margin-right: -2rem;
+    margin-left: -2rem;
+    padding: 0 2rem;
     @include md {
-      gap: 20px;
+      gap: 2rem;
       margin: 0;
       padding: 0;
     }
     .videoItem {
-      width: 150px;
+      width: 15rem;
       flex-shrink: 0;
       @include md {
         width: 25%;
       }
       cursor: pointer;
+
       .videoThumbnail {
-        margin-bottom: 15px;
+        margin-bottom: 1.5rem;
         position: relative;
         img {
           width: 100%;
           display: block;
-          border-radius: 12px;
+          border-radius: 1.2rem;
           transition: all 0.7s ease-in-out;
         }
         svg {
+          color: red;
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 50px;
-          height: 50px;
+          width: 5rem;
+          height: 5rem;
         }
-        .triangle {
-          stroke-dasharray: 240;
-          stroke-dashoffset: 480;
-          stroke: white;
-          transform: translateY(0);
-          transition: all 0.7s ease-in-out;
-        }
-        .circle {
-          stroke: white;
-          stroke-dasharray: 650;
-          stroke-dashoffset: 1300;
-          transition: all 0.5s ease-in-out;
-        }
+
         &:hover {
           img {
             opacity: 0.5;
-          }
-          .triangle {
-            stroke-dashoffset: 0;
-            opacity: 1;
-            stroke: var(--pink);
-            animation: trailorPlay 0.7s ease-in-out;
-          }
-          .circle {
-            stroke-dashoffset: 0;
-            stroke: var(--pink);
           }
         }
       }

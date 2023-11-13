@@ -5,19 +5,12 @@ import "./castStyles.scss";
 import avatar from "../../../assets/avatar.png";
 
 import { ContentWrap, LazyLoadImg } from "../../../components";
+import PropTypes from "prop-types";
+
+import { SkeletonItemsCast } from "../../../utils";
 
 export const Cast = ({ data, loading }) => {
   const { url } = useSelector((state) => state.home);
-
-  const skeleton = () => {
-    return (
-      <div className="skItem">
-        <div className="circle skeleton"></div>
-        <div className="row skeleton"></div>
-        <div className="row2 skeleton"></div>
-      </div>
-    );
-  };
 
   return (
     <div className="castSection">
@@ -42,15 +35,18 @@ export const Cast = ({ data, loading }) => {
           </div>
         ) : (
           <div className="castSkeleton">
-            {skeleton()}
-            {skeleton()}
-            {skeleton()}
-            {skeleton()}
-            {skeleton()}
-            {skeleton()}
+            <SkeletonItemsCast />
+            <SkeletonItemsCast />
+            <SkeletonItemsCast />
+            <SkeletonItemsCast />
+            <SkeletonItemsCast />
           </div>
         )}
       </ContentWrap>
     </div>
   );
+};
+Cast.propTypes = {
+  data: PropTypes.array,
+  loading: PropTypes.bool,
 };

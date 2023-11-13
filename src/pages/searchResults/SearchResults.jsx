@@ -5,7 +5,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import "./searchResultsStyles.scss";
 import { fetchDataApi } from "../../api";
 import { ContentWrap, Spinner, MovieCard } from "../../components";
-import noResultImg from "../../assets/no-results.png";
+import { ErrorPage } from "../error/ErrorPage";
 
 export const SearchResults = () => {
   const [data, setData] = useState(null);
@@ -83,8 +83,7 @@ export const SearchResults = () => {
             </>
           ) : (
             <span className="resultNotFound">
-              <h3>Sorry, No results found!</h3>
-              <img src={noResultImg} alt="No results Img" />
+              <ErrorPage />
             </span>
           )}
         </ContentWrap>

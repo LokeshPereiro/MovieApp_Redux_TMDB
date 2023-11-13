@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-import { useFetchData } from "../../../hooks";
 import { SwitchTabs, ContentWrap, Carousel } from "../../../components";
+import { useFetchData } from "../../../hooks";
+
 import { POPULAR_TOPRATED_DATA } from "../../../constants";
 
 export const TopRated = () => {
@@ -16,7 +17,7 @@ export const TopRated = () => {
     <div className="carouselSection">
       <ContentWrap>
         <span className="carouselTitle">Top Rated</span>
-        <SwitchTabs data={POPULAR_TOPRATED_DATA} onTabChange={onTabChange} />
+        <SwitchTabs dataTab={POPULAR_TOPRATED_DATA} onTabChange={onTabChange} />
       </ContentWrap>
       <Carousel data={data?.results} loading={loading} endpoint={endpoint} />
     </div>

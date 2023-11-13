@@ -49,6 +49,8 @@
     justify-content: center;
     gap: 1rem;
     .icon {
+      text-decoration: none;
+      color: var(--darkWhite);
       width: 5rem;
       height: 5rem;
       border-radius: 50%;
@@ -58,9 +60,17 @@
       cursor: pointer;
       transition: all ease 0.3s;
       &:hover {
-        box-shadow: 0 0 0.625em var(--redPink);
-        color: var(--redPink);
+        box-shadow: 0 0 0.625em var(--lightBlue);
+        &:hover.github {
+          color: var(--yellowOrange);
+        }
+        &:hover.linkedin {
+          color: blue;
+        }
       }
     }
+  }
+  .copyright {
+    font-size: 1.3rem;
   }
 }

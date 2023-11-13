@@ -54,7 +54,23 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
-
+input,
+button {
+  font-family: "Kalam", "Dosis", sans-serif, "Times New Roman", serif;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.go-back {
+  button {
+    background-color: var(--redPink);
+    color: var(--white);
+    font-weight: bold;
+    padding: 1rem;
+    border: none;
+    border-radius: 1.5rem;
+  }
+}
 .skeleton {
   position: relative;
   overflow: hidden;

@@ -3,21 +3,23 @@ import { useState } from "react";
 import "./relatedVideosStyles.scss";
 
 import { LazyLoadImg, ContentWrap, Video } from "../../../components";
-import { PlayIconBtn } from "../";
+import PropTypes from "prop-types";
 
+import { BsYoutube } from "react-icons/bs";
+import { SkeletonItemsRelatedVideo } from "../../../utils";
 export const RelatedVideos = ({ data, loading }) => {
   const [show, setShow] = useState(false);
   const [videoId, setVideoId] = useState(null);
 
-  const loadingSkeleton = () => {
-    return (
-      <div className="skItem">
-        <div className="thumb skeleton"></div>
-        <div className="row skeleton"></div>
-        <div className="row2 skeleton"></div>
-      </div>
-    );
-  };
+  // const loadingSkeleton = () => {
+  //   return (
+  //     <div className="skItem">
+  //       <div className="thumb skeleton"></div>
+  //       <div className="row skeleton"></div>
+  //       <div className="row2 skeleton"></div>
+  //     </div>
+  //   );
+  // };
 
   return (
     <div className="videosSection">
@@ -38,7 +40,7 @@ export const RelatedVideos = ({ data, loading }) => {
                   <LazyLoadImg
                     src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`}
                   />
-                  <PlayIconBtn />
+                  <BsYoutube />
                 </div>
                 <div className="videoTitle">{video.name}</div>
               </div>
@@ -46,10 +48,11 @@ export const RelatedVideos = ({ data, loading }) => {
           </div>
         ) : (
           <div className="videoSkeleton">
-            {loadingSkeleton()}
-            {loadingSkeleton()}
-            {loadingSkeleton()}
-            {loadingSkeleton()}
+            <SkeletonItemsRelatedVideo />
+            <SkeletonItemsRelatedVideo />
+            <SkeletonItemsRelatedVideo />
+            <SkeletonItemsRelatedVideo />
+            <SkeletonItemsRelatedVideo />
           </div>
         )}
       </ContentWrap>
@@ -61,4 +64,9 @@ export const RelatedVideos = ({ data, loading }) => {
       />
     </div>
   );
+};
+
+RelatedVideos.propTypes = {
+  data: PropTypes.array,
+  loading: PropTypes.bool,
 };
